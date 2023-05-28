@@ -8,15 +8,14 @@ import Modal from "react-modal";
 
 import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
 
-
 const ProductList = () => {
   const [product, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     category: "",
-    productName: ""
+    productName: "",
   });
-  
+
   const [isEditing, setIsEditing] = useState(false);
   const [productID, setProductID] = useState("");
 
@@ -58,15 +57,16 @@ const ProductList = () => {
 
   const createProduct = async (e) => {
     e.preventDefault();
-    console.log("xczsfdsd",formData);
+    console.log("xczsfdsd", formData);
     if (formData.productName === "" || formData.category === "") {
       return toast.error("Input field cannot be empty");
     }
-  
+
     try {
       await axios.post(`${URL}/api/products/post-product`, formData);
       toast.success("Product added successfully");
       setFormData({ category: "", productName: "" });
+      closeModal();
       getProducts();
     } catch (error) {
       toast.error(error.message);
@@ -78,7 +78,10 @@ const ProductList = () => {
     setIsEditing(true);
     console.log("isediting", isEditing);
     console.log("ABC", product);
-    setFormData({ productName: product.productName, category:product.category   });
+    setFormData({
+      productName: product.productName,
+      category: product.category,
+    });
     setProductID(product._id);
   };
 
@@ -88,11 +91,15 @@ const ProductList = () => {
       return toast.error("Input field cannot be empty.");
     }
     try {
-    await axios.put(`${URL}/api/products/update-product/${productID}`, formData);
+      await axios.put(
+        `${URL}/api/products/update-product/${productID}`,
+        formData
+      );
 
-      console.log(productID)
+      console.log(productID);
       setFormData({ category: "", productName: "" });
       setIsEditing(false);
+      closeModal();
       getProducts();
       toast.success("Product Updated Successfully");
     } catch (error) {
@@ -114,22 +121,27 @@ const ProductList = () => {
     <div>
       <h2>Product Manager</h2>
       <hr />
-      <button className="add-button" onClick={openModal}>Add Product</button>
-      <Modal
-        className="modal"
+      <button className="add-button" onClick={openModal}>
+        Add Product
+      </button>
+
+      <Modal 
+        className="modal --flex-center"
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         contentLabel="Add Product Modal"
       >
         <AddProductForm
-        createProduct={createProduct}
-        handleInputChange={handleInputChange}
-        updateProduct={updateProduct} 
-        getSingleProduct={getSingleProduct}
-        isEditing={isEditing}
-        formData={formData}
+          createProduct={createProduct}
+          handleInputChange={handleInputChange}
+          updateProduct={updateProduct}
+          getSingleProduct={getSingleProduct}
+          isEditing={isEditing}
+          formData={formData}
+          closeModal={closeModal}
         />
-        <button onClick={closeModal}>Close Modal</button>
+        {/* <button onClick={closeModal}>Close Modal</button> */}
+        {/* <button type="submit">{isEditing ? "Edit" : "Add"}</button> */}
       </Modal>
 
       {isLoading && (
@@ -138,34 +150,43 @@ const ProductList = () => {
         </div>
       )}
       {!isLoading && product.length === 0 ? (
-        <p className="--py">No product added. Please add a please</p>
+        <p className="--py">No product added. Please add a Product with Category</p>
       ) : (
         <>
           <table>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Product</th>
-          <th>Category</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {product.map((product, index) => (
-          <tr key={product._id} className={"product"}>
-            <td>{index + 1}</td>
-            <td>{product.productName}</td>
-            <td>{product.category}</td>
-            <td>
-              <div className="product-icons">
-              <FaEdit color="purple" onClick={() => { getSingleProduct(product); openModal(); }} />
-                <FaRegTrashAlt color="red" onClick={() => deleteProduct(product._id)} />
-              </div>
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Category</th>
+                <th className="last-header">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {product.map((product, index) => (
+                <tr key={product._id} className={"product"}>
+                  <td>{index + 1}</td>
+                  <td>{product.productName}</td>
+                  <td>{product.category}</td>
+                  <td>
+                    <div className="product-icons">
+                      <FaEdit
+                        color="purple"
+                        onClick={() => {
+                          getSingleProduct(product);
+                          openModal();
+                        }}
+                      />
+                      <FaRegTrashAlt
+                        color="red"
+                        onClick={() => deleteProduct(product._id)}
+                      />
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </>
       )}
     </div>

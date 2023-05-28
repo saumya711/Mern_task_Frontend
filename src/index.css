@@ -182,12 +182,12 @@ p {
 .--color-primary {
   color: #007bff;
 }
-.--color-danger {
+/* .--color-danger {
   color: orangered;
-}
-.--color-success {
+} */
+/* .--color-success {
   color: #28a745;
-}
+} */
 
 .--color-white {
   color: #fff;
@@ -433,7 +433,7 @@ a:hover {
   font-size: 1.5rem;
 }
 
-/* TASK APP CSS */
+/* PROUDUCT APP CSS */
 .app {
   width: 100%;
   min-height: 100vh;
@@ -444,7 +444,7 @@ a:hover {
   padding: 0 10px;
 }
 
-.task-container {
+/* .task-container {
   width: 100%;
   max-width: 500px;
   height: auto;
@@ -455,10 +455,11 @@ a:hover {
   overflow: hidden;
   margin-top: 100px;
   padding: 3rem 2rem;
-}
+} */
 .product-container {
   width: 100%;
   max-width: 500px;
+  top: 20%;
   height: auto;
   background-color: #fff;
   border: 1px solid transparent;
@@ -469,28 +470,143 @@ a:hover {
   padding: 3rem 2rem;
 }
 
-.task-form {
+/* .task-form {
   width: 100%;
   margin: 2rem 0;
   display: flex;
-}
+} */
+
+/* .product-form {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+} */
 
 .product-form {
   width: 100%;
-  margin: 2rem 0;
-  display: flex;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-.task-form input {
+.product-form input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.product-form label {
+  display: block;
+  /* margin-bottom: 4px; */
+  font-size: 14px;
+  color: #fff;
+  text-align: left;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.add-product-button {
+  width: 20%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 1rem;
+}
+
+.add-product-button {
+  margin-right: 10px;
+}
+
+
+.add-product-button:hover {
+  background-color: #890cf0;
+}
+
+.close-product-button {
+  width: 20%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #f87307;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 1rem;
+}
+
+.close-product-button:hover {
+  background-color: #f81707;
+}
+
+
+/* .product-form button {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.product-form button:hover {
+  background-color: #c30fe7b6;
+}
+
+.product-form button:focus {
+  outline: none;
+} */
+
+/* Optional: Add additional styles to enhance the appearance */
+.product-form input[type="text"]::placeholder {
+  color: #999;
+}
+
+.product-form input[type="text"]:focus {
+  outline: none;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* .task-form input {
   width: 85%;
   height: 4rem;
   font-size: 1.6rem;
   padding: 0 5px;
   outline: none;
-  /* margin-right: 5px; */
-}
+  margin-right: 5px;
+} */
 
-.task-form button {
+/* .product-form input {
+  width: 85%;
+  height: 4rem;
+  font-size: 1.6rem;
+  padding: 0 5px;
+  outline: none;
+  margin-right: 5px;
+} */
+
+/* .task-form button {
   width: 15%;
   height: 4rem;
   font-size: 1.8rem;
@@ -499,8 +615,8 @@ a:hover {
   color: #fff;
   border: none;
   transition: all 0.3s;
-}
-
+} */
+/* 
 .product-form button {
   width: 15%;
   height: 4rem;
@@ -510,8 +626,9 @@ a:hover {
   color: #fff;
   border: none;
   transition: all 0.3s;
-}
-.add-button {
+} */
+
+/* .add-button {
   width: 15%;
   height: 4rem;
   font-size: 1.8rem;
@@ -520,9 +637,89 @@ a:hover {
   color: #fff;
   border: none;
   transition: all 0.3s;
+} */
+
+/* .add-button {
+  width: 15%;
+  height: 4rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background-color: var(--color-purple);
+  color: #fff;
+  border: none;
+  transition: all 0.3s;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+} */
+
+/* .add-button:hover {
+  background-color: var(--color-purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.modal {
+.add-button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.add-button:focus {
+  outline: none;
+} */
+
+/* .add-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.add-button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+} */
+
+/* .header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-row h2 {
+  margin: 0;
+}
+
+.header-row hr {
+  flex-grow: 1;
+  margin: 0 1rem;
+  border: none;
+  border-top: 1px solid #ddd;
+} */
+
+.add-button {
+  width: 30%;
+  height: 4rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  background-color: var(--color-purple);
+  color: #fff;
+  border: none;
+  transition: background-color 0.3s;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  outline: none;
+  margin-top: 1%;
+  margin-bottom: 2%;
+}
+
+.add-button:hover {
+  background-color: var(--color-primary);
+}
+
+.add-button:focus {
+  outline: none;
+}
+
+/* .modal {
   width: 100%;
   max-width: 500px;
   height: auto;
@@ -535,22 +732,163 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.task-form button:hover {
-  background-color: var(--color-primary);
-}
-
-.task {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
   width: 100%;
-  background-color: #eee;
-  padding: 10px;
-  margin: 7px 0;
-  animation: slide-in ease 0.5s;
+  max-width: 500px;
+  height: auto;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 100px;
+  padding: 3rem 2rem;
+} */
+
+.modal {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  background: linear-gradient(45deg, #5f2689, #07b3f7);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* .modal::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%; */
+/* width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background: linear-gradient(45deg, #5f2689, #07b3f7);
+  opacity: 0.8;
+  border-radius: 20px;
+  z-index: -2;
+} */
+
+/* .modal::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0.6;
+  z-index: -2;
+} */
+
+/* Add animation if desired */
+/* @keyframes modalAnimation {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+} */
+
+/* .modal {
+  animation: modalAnimation 0.3s ease-out forwards;
+}  */
+
+/* .modal button {
+  width: 20%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: var(--color-primary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 1rem;
+} */
+
+/* .modal button:hover {
+  background-color: var(--color-primary-dark);
+} */
+
+/* .task-form button:hover {
+  background-color: var(--color-primary);
+} */
+
+/* .product-form button:hover {
+  background-color: #890cf0;
+} */
+
+/* Table Styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+thead th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+}
+
+thead th.last-header {
+  text-align: center;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody td {
+  padding: 12px;
+}
+
+.product-icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.product-icons svg {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.product-icons svg:hover {
+  opacity: 0.7;
+}
+
+/* Alternating Row Colors */
+tbody tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+/* Hover Effect */
+tbody tr:hover {
+  background-color: #f2f2f2;
 }
 
 @keyframes slide-in {
@@ -565,7 +903,7 @@ a:hover {
   }
 }
 
-.task::after {
+/* .task::after {
   content: "";
   position: absolute;
   top: 0;
@@ -573,21 +911,17 @@ a:hover {
   height: 100%;
   width: 5px;
   background-color: var(--color-danger);
-}
+} */
 
-.completed {
-  position: relative;
-}
-
-.completed::after {
+/* .product::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 5px;
-  background-color: var(--color-success);
-}
+  background-color: var(--color-danger);
+} */
 
 .task-icons {
   font-size: 1.6rem;
