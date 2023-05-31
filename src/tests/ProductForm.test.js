@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import ProductForm from './ProductForm';
+import ProductForm from '../components/AddProductForm';
 
 test('renders product form with correct inputs and submit button', () => {
   // Define mock props
